@@ -1,14 +1,12 @@
-import '../styles/header.scss';
 
-export type HeaderProps = {
+interface HeaderProps {
   genreTitle: string;
 }
 
 export function Header({ genreTitle }: HeaderProps) {
-  // Complete aqui
   return (
     <header>
       <span className="category">Categoria:<span> {genreTitle}</span></span>
     </header>
-  )
+  );
 }

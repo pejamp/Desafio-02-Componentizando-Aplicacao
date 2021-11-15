@@ -1,17 +1,14 @@
 import { useEffect, useState } from 'react';
 import { api } from '../services/api';
-
-import { MovieCard } from './MovieCard';
-import { Header } from './Header';
-
 import '../styles/content.scss';
+import { Header } from './Header';
+import { MovieCard } from './MovieCard';
 
 interface GenreResponseProps {
   id: number;
   name: 'action' | 'comedy' | 'documentary' | 'drama' | 'horror' | 'family';
   title: string;
 }
-
 interface MovieProps {
   imdbID: string;
   Title: string;
@@ -49,16 +46,10 @@ export function Content({ selectedGenreId }: ContentProps) {
       <main>
         <div className="movies-list">
           {movies.map(movie => (
-            <MovieCard 
-              key ={movie.imdbID} 
-              title={movie.Title} 
-              poster={movie.Poster} 
-              runtime={movie.Runtime} 
-              rating={movie.Ratings[0].Value} 
-            />
+            <MovieCard key ={movie.imdbID} title={movie.Title} poster={movie.Poster} runtime={movie.Runtime} rating={movie.Ratings[0].Value} />
           ))}
         </div>
       </main>
     </div>
-  )
+  );
 }
